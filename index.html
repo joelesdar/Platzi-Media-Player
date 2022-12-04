@@ -27,13 +27,25 @@
       // Seleccionamos las etiquetas que vamos a manipular
       const video = document.querySelector("video");
       const button = document.querySelector("button");
-
-      button.onclick = () => video.play();
-
+      
+      
       // Clase MediaPlayer
-      function MediaPlayer() {
-
+      function MediaPlayer(config) {
+        this.media = config.element;
       }
+      
+      // Métodos de la clase
+      MediaPlayer.prototype.play = function() {
+        if(video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+
+      const player = new MediaPlayer({ element: video });
+      button.onclick = () => player.play();
+
     </script>
   </body>
 </html>
