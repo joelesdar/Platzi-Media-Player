@@ -3,8 +3,6 @@
 function MediaPlayer(config) {
   this.media = config.element;
   this.plugins = config.plugins || [];
-  console.log(this.media);
-
   this._initPlugins();
 }
 
