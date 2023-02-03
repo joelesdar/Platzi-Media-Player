@@ -71,10 +71,11 @@
         // saludoConBind.bind(person2); Una vez usado el método bind ya no se puede cambiar el valor de this después de ninguna manera
         saludoConBind();
 
+        // NEW BINDING: Instanciar objetos
 
         // this en el contexto de una 'clase'
         function Person(name) {
-            // this = {}
+            // this = {} Implicitamente crea el objeto Object.create() y retorna todos los valores
             this.name = name;
         }
         Person.prototype.saludar = function() {
@@ -82,6 +83,39 @@
         }
         const Angela = new Person("Angela");
         Angela.saludar();
+
+        // LEXICAL BINDING: Arrow functions
+
+        // Aquí this en una función tradicional hace un default binding, y encuentra this.twitter como undefinided
+        const tinicassi = {
+            name: 'Tini',
+            twitter: '@tinicassi',
+            saludar: function() {
+                function siguemeEnTwitter() {
+                    console.log(`Sigueme en Twitter: ${this.twitter}`);
+                }
+
+                console.log(`Hola, soy ${this.name}`);
+                siguemeEnTwitter();
+            }
+        }
+        // Se ejecuta en el contexto global
+        tinicassi.saludar();
+
+        // Pero en las arrow function, la función se ejecuta en el mismo contexto donde fueron creadas, y encuentra this.twitter como '@joelesdar'
+        const joelesdar = {
+            name: 'Joel',
+            twitter: '@joelesdar',
+            saludar: function() {
+                const siguemeEnTwitter = () => {
+                    console.log(`Sigueme en Twitter: ${this.twitter}`);
+                }
+
+                console.log(`Hola, soy ${this.name}`);
+                siguemeEnTwitter();
+            }
+        }
+        joelesdar.saludar();
 
     </script>
 </body>
