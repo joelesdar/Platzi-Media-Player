@@ -1,13 +1,13 @@
-import MediaPlayer from './MediaPlayer.js'
-import AutoPlay from './plugins/AutoPlay.js';
-import AutoPause from './plugins/AutoPause.js';
+import MediaPlayer from './MediaPlayer'
+import AutoPlay from './plugins/AutoPlay';
+import AutoPause from './plugins/AutoPause';
 
 // Seleccionamos las etiquetas (html) que vamos a manipular
 const video = document.getElementById("video");
-const playButton = document.getElementById("play-button");
-const muteButton = document.getElementById("mute-button");
-
 const player = new MediaPlayer({ element: video, plugins: [new AutoPlay, new AutoPause] });
+const playButton: HTMLElement = document.getElementById("play-button") as HTMLElement;
+const muteButton: HTMLElement = document.getElementById("mute-button") as HTMLElement;
+
 playButton.onclick = () => player.togglePlay();
 muteButton.onclick = () => player.toggleMute();
 
