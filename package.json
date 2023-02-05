@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Proyecto del curso profesional de Javascript de Platzi",
   "license": "MIT",
-  "author": "Joel Esteban Diaz Arévalo <joelesdar.com>, César Augusto Barco <augustopayza@gmail.com>",
+  "author": "Joel Esteban Diaz Arévalo <joelesdar.com>",
   "keywords": [
     "platzi"
   ],
@@ -14,6 +14,7 @@
     "last 1 Chrome version"
   ],
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.9.5"
   }
 }
